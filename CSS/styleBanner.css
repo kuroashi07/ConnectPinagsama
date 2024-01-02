@@ -1,0 +1,51 @@
+ .top-container {
+     width: auto;
+     height: 40px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: white;
+     font-style: bold;
+     background-color: #6693F5;
+ }
+
+ .banner-container {
+    width: auto;
+    height: auto;
+    background-size: cover;
+}
+
+ .transparent {
+     background: rgba(0, 0, 0, 0.5);
+ }
+
+
+ .banner-body {
+     width: 100%;
+     height: 300px;
+     text-align: center;
+
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+ }
+
+ .title {
+     color: white;
+     font-size: 50px;
+     font-weight: bold;
+ }
+
+ .sub-title {
+     color: white;
+     font-size: 19px;
+ }
+
+ .sub-title a {
+     color: inherit;
+     text-decoration: none;
+ }
+
+ .sub-title a:hover {
+     color: red;
+ }
