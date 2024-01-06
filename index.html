@@ -3,23 +3,24 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Homepage</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
     <link rel="stylesheet" href="CSS/styleHome.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 
 
 <?php
-include '../php/connection.php';
-include '../php/getHome.php';
-include '../php/getAbout.php';
-include '../php/getContact.php';
-include '../php/getFaqs.php';
+include 'php/connection.php';
+include 'php/getHome.php';
+include 'php/getAbout.php';
+include 'php/getContact.php';
+include 'php/getFaqs.php';
 
 $resultNewsEvent = mysqli_query($conn, "SELECT * FROM news_tb WHERE type = 'Event' ORDER BY date_posted ASC LIMIT 1");
 
@@ -83,10 +84,10 @@ mysqli_close($conn);
                 <div class="banner-body">
 
                     <div class="banner-body-contents">
-                        <div class="banner-body-left">
+                        <div class="banner-body-left hidden3">
                             <img src="<?php echo '../uploads/' . $banner_image; ?>" alt="" class="image">
                         </div>
-                        <div class="banner-body-right">
+                        <div class="banner-body-right hidden3">
                             <div class="first-line">
                                 <hr class="line-left"> &nbsp Discover The District
                                 <hr class="line-right">
@@ -115,22 +116,23 @@ mysqli_close($conn);
                     <div class="container-pictures">
 
                         <div class="container-pictures-row">
-                            <div class="container-about-images">
-                                <img src="<?php echo '../uploads/' . $image1; ?>" alt="" class="image">
+                            <div class="container-about-images hidden3">
+                                <img src="<?php echo '../uploads/' . $image1; ?>" alt="" class="image" onclick="openModal('<?php echo '../uploads/' . $image1; ?>')">
                             </div>
-                            <div class="container-about-images">
-                                <img src="<?php echo '../uploads/' . $image2; ?>" alt="" class="image">
+                            <div class="container-about-images hidden3">
+                                <img src="<?php echo '../uploads/' . $image2; ?>" alt="" class="image" onclick="openModal('<?php echo '../uploads/' . $image2; ?>')">
                             </div>
-                            <div class="container-about-images">
-                                <img src="<?php echo '../uploads/' . $image3; ?>" alt="" class="image">
+                            <div class="container-about-images hidden3">
+                                <img src="<?php echo '../uploads/' . $image3; ?>" alt="" class="image" onclick="openModal('<?php echo '../uploads/' . $image3; ?>')">
                             </div>
-                            <div class="container-about-images">
-                                <img src="<?php echo '../uploads/' . $image4; ?>" alt="" class="image">
+                            <div class="container-about-images hidden3">
+                                <img src="<?php echo '../uploads/' . $image4; ?>" alt="" class="image" onclick="openModal('<?php echo '../uploads/' . $image4; ?>')">
                             </div>
-                            <div class="container-about-images">
-                                <img src="<?php echo '../uploads/' . $image5; ?>" alt="" class="image">
+                            <div class="container-about-images hidden3">
+                                <img src="<?php echo '../uploads/' . $image5; ?>" alt="" class="image" onclick="openModal('<?php echo '../uploads/' . $image5; ?>')">
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -142,22 +144,22 @@ mysqli_close($conn);
                     <div class="container-column">
 
 
-                        <div class="body-title">About Us</div>
-                        <div class="body-description"> <?php echo $about_description; ?> </div>
+                        <div class="body-title hidden2">About Us</div>
+                        <div class="body-description hidden2"> <?php echo $about_description; ?> </div>
                         <div class="container-row">
-                            <div class="container-box-contents">
+                            <div class="container-box-contents hidden3">
                                 <div class="container-box-title">Mission</div>
                                 <div class="container-box-desc">
                                     <?php echo $mission_desc; ?>
                                 </div>
                             </div>
-                            <div class="container-box-contents">
+                            <div class="container-box-contents hidden3">
                                 <div class="container-box-title">Vision</div>
                                 <div class="container-box-desc">
                                     <?php echo $vision_desc; ?>
                                 </div>
                             </div>
-                            <div class="container-box-contents">
+                            <div class="container-box-contents hidden3">
                                 <div class="container-box-title">Goal</div>
                                 <div class="container-box-desc">
                                     <?php echo $goals_desc; ?>
@@ -165,15 +167,11 @@ mysqli_close($conn);
                             </div>
                         </div>
 
-                        <div class="parallax">
-                            <div class="transparent2">
-                                <a href="About.php">
-                                    <div class="container-button">
-                                        Learn more
-                                    </div>
-                                </a>
+                        <a href="About.php">
+                            <div class="container-button hidden">
+                                Learn more
                             </div>
-                        </div>
+                        </a>
 
                     </div>
                 </div>
@@ -184,11 +182,11 @@ mysqli_close($conn);
 
                 <div class="container-services-contents">
                     <div class="container-column">
-                        <div class="body-title">Services</div>
-                        <div class="body-description"> <?php echo $services_description; ?></div>
+                        <div class="body-title hidden2">Services</div>
+                        <div class="body-description  hidden2"> <?php echo $services_description; ?></div>
                         <div class="container-row2">
 
-                            <div class="container-box-contents2">
+                            <div class="container-box-contents2 hidden3">
 
                                 <div class="container-services-images">
                                     <img src="Images/clearance.jpg" alt="" class="image">
@@ -203,7 +201,7 @@ mysqli_close($conn);
                                 </div>
                             </div>
 
-                            <div class="container-box-contents2">
+                            <div class="container-box-contents2 hidden3">
 
                                 <div class="container-services-images">
                                     <img src="Images/indigency.jpg" alt="" class="image">
@@ -219,8 +217,8 @@ mysqli_close($conn);
                                 </div>
                             </div>
 
-                            
-                            <div class="container-box-contents2">
+
+                            <div class="container-box-contents2 hidden3">
 
                                 <div class="container-services-images">
                                     <img src="Images/residency.jpg" alt="" class="image">
@@ -238,15 +236,11 @@ mysqli_close($conn);
 
                         </div>
 
-                        <div class="parallax">
-                            <div class="transparent2">
-                                <a href="Services.php">
-                                    <div class="container-button">
-                                        Learn more
-                                    </div>
-                                </a>
+                        <a href="Services.php">
+                            <div class="container-button hidden">
+                                Learn more
                             </div>
-                        </div>
+                        </a>
 
                     </div>
                 </div>
@@ -257,10 +251,11 @@ mysqli_close($conn);
             <div class="container-news">
                 <div class="container-news-contents">
                     <div class="container-column">
-                        <div class="body-title">News</div>
-                        <div class="body-description"> <?php echo $news_description; ?></div>
+                        <div class="body-title hidden2">News</div>
+                        <div class="body-description hidden2"> <?php echo $news_description; ?></div>
                         <div class="container-row2">
-                            <div class="container-box-contents3">
+
+                            <div class="container-box-contents3 hidden3">
                                 <div class="container-news-contents2">
 
                                     <div class="content-title">
@@ -335,7 +330,7 @@ mysqli_close($conn);
                             </div>
 
 
-                            <div class="container-box-contents3">
+                            <div class="container-box-contents3 hidden3">
                                 <div class="container-news-contents2">
 
                                     <div class="content-title">
@@ -409,23 +404,19 @@ mysqli_close($conn);
 
                         </div>
 
-                        <div class="parallax">
-                            <div class="transparent2">
-                                <a href="News.php">
-                                    <div class="container-button">
-                                        Learn more
-                                    </div>
-                                </a>
+                        <a href="News.php">
+                            <div class="container-button hidden">
+                                Learn more
                             </div>
-                        </div>
+                        </a>
 
                     </div>
                 </div>
 
             </div>
 
-            <div class="container-contact">
-                <div class="container-contact-contents">
+            <div class="container-contact ">
+                <div class="container-contact-contents hidden2">
                     <div class="container-column">
 
                         <div class="body-title">Contact Us</div>
@@ -460,15 +451,11 @@ mysqli_close($conn);
 
                         </div>
 
-                        <div class="parallax">
-                            <div class="transparent2">
-                                <a href="Contact.php">
-                                    <div class="container-button">
-                                        Learn more
-                                    </div>
-                                </a>
+                        <a href="Contact.php">
+                            <div class="container-button hidden">
+                                Learn more
                             </div>
-                        </div>
+                        </a>
 
                     </div>
                 </div>
@@ -477,8 +464,8 @@ mysqli_close($conn);
             <div class="container-faqs">
                 <div class="container-faqs-contents">
                     <div class="container-column">
-                        <div class="body-title">Frequently Asked Questions</div>
-                        <div class="body-description"> <?php echo $faqs_description; ?></div>
+                        <div class="body-title hidden2">Frequently Asked Questions</div>
+                        <div class="body-description hidden2"> <?php echo $faqs_description; ?></div>
                         <div class="container-row2">
 
                             <?php
@@ -487,7 +474,7 @@ mysqli_close($conn);
                             foreach ($rows as $index => $row) {
                                 if ($counter < 2) {
                             ?>
-                                    <div class="container-box-contents3">
+                                    <div class="container-box-contents3 hidden3">
                                         <div class="content-title"> <?php echo $row['question']; ?> </div>
                                         <div class="content-description"> <?php echo $row['answer']; ?> </div>
                                     </div>
@@ -501,17 +488,26 @@ mysqli_close($conn);
 
                         </div>
 
-                        <div class="parallax">
-                            <div class="transparent2">
-                                <a href="FAQ.php">
-                                    <div class="container-button">
-                                        Learn more
-                                    </div>
-                                </a>
+                        <a href="FAQ.php">
+                            <div class="container-button hidden">
+                                Learn more
                             </div>
-                        </div>
+                        </a>
 
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for Edit -->
+        <div id="imageModal" class="modal">
+            <div class="modal-content">
+                <div class="container-close">
+                    <span class="close2" onclick="closeModal()">&times;</span>
+                </div>
+
+                <div id="images">
+
                 </div>
             </div>
         </div>
@@ -522,3 +518,54 @@ mysqli_close($conn);
 </body>
 
 </html>
+
+
+
+<script>
+    function createIntersectionObserver(className, showClass) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add(showClass);
+                } else {
+                    entry.target.classList.remove(showClass);
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll(className);
+        hiddenElements.forEach((el) => observer.observe(el));
+    }
+
+    // Usage
+    createIntersectionObserver('.hidden', 'show');
+    createIntersectionObserver('.hidden2', 'show2');
+    createIntersectionObserver('.hidden3', 'show3');
+
+
+
+
+
+    
+    function openModal(images, id) {
+        var modal = document.getElementById('imageModal');
+        modal.classList.add('show');
+
+        var imagesElement = document.getElementById('images');
+        imagesElement.innerHTML = `<img src="../request/${images}" class="image">`;
+
+        document.getElementById('id').value = id;
+    }
+
+    function closeModal() {
+        var modal = document.getElementById('imageModal');
+        modal.classList.remove('show');
+    }
+
+    window.onclick = function (event) {
+        var modal = document.getElementById('imageModal');
+        if (event.target == modal) {
+            closeModal();
+        }
+    };
+</script>
