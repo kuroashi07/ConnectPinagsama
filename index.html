@@ -9,7 +9,9 @@
 
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
+    <link rel="stylesheet" href="CSS/styleNavbar.css">
     <link rel="stylesheet" href="CSS/styleHome.css">
+  
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
@@ -609,4 +611,51 @@ mysqli_close($conn);
             closeModal();
         }
     };
+
+
+
+       window.onscroll = function() {
+        myFunction();
+    };
+
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+            header.classList.remove("nav-container-default");
+            header.classList.add("nav-container-scroll");
+        } else {
+            header.classList.remove("sticky");
+            header.classList.remove("nav-container-scroll");
+            header.classList.add("nav-container-default");
+        }
+    }
+
+    function toggleMenu() {
+        var mobileNav = document.getElementById("mobileNav");
+        mobileNav.classList.toggle("show-mobile-nav");
+    }
+
+
+
+
+    function createIntersectionObserver(className, showClass) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add(showClass);
+                } else {
+                    entry.target.classList.remove(showClass);
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll(className);
+        hiddenElements.forEach((el) => observer.observe(el));
+    }
+
+    // Usage
+    createIntersectionObserver('.hidden2', 'show2');
 </script>
