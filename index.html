@@ -80,8 +80,49 @@ mysqli_close($conn);
         <div class="top-container"><?php echo $office_hours; ?> </div>
         <div class="banner-container" style="background-image: url(<?php echo '../uploads/' . $banner_background; ?>);">
             <div class="transparent">
-                <?php include 'navbar.php'; ?>
-                <div class="banner-body">
+<div class="nav-container" id="myHeader">
+    <div class="nav-container-left">
+        <div class="nav-logo">
+            <img src="<?php echo '../uploads/' . $logo_image; ?>" alt="" class="image">
+        </div>
+    </div>
+    <!-- Add this div for the menu icon -->
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+    <div class="nav-container-right">
+        <div class="nav-home nav-item"><a href="Home.php">Home</a></div>
+        <div class="nav-about nav-item"><a href="About.php">About</a></div>
+        <div class="nav-services nav-item"><a href="Services.php">Services</a></div>
+        <div class="nav-news nav-item"><a href="News.php">News</a></div>
+        <div class="nav-contact nav-item"><a href="Contact.php">Contact</a></div>
+        <div class="nav-faq nav-item"><a href="FAQ.php">FAQ</a></div>
+        <div class="nav-faq nav-item"><a href="Track.php">Track Your Request</a></div>
+    </div>
+
+    <!-- Add this div for the mobile navigation menu -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-body">
+            <div class="nav-left-container">
+
+            </div>
+            <div class="nav-right-container hidden2">
+                <div class="mobile-nav-close" onclick="toggleMenu()">&times;</div>
+                <div class="mobile-nav-links">
+                    <a href="Home.php">Home</a>
+                    <a href="About.php">About</a>
+                    <a href="Services.php">Services</a>
+                    <a href="News.php">News</a>
+                    <a href="Contact.php">Contact</a>
+                    <a href="FAQ.php">FAQ</a>
+                    <a href="Track.php">Track Your Request</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>                <div class="banner-body">
 
                     <div class="banner-body-contents">
                         <div class="banner-body-left hidden3">
